@@ -11,14 +11,15 @@ class BaseModelData(Model):
     """
     Базовый класс для поисковых моделей пользователей
     """
-    user_id = IntegerField(primary_key=True)
+    # user_id = IntegerField()
 
     class Meta:
         database = database
-        order_by = 'user_id'
+        # order_by = 'user_id'
 
 
 class UserData(BaseModelData):
+    user_id = IntegerField(primary_key=True)
     numFound = IntegerField()
     name = CharField()
     link = CharField()
@@ -29,6 +30,7 @@ class UserData(BaseModelData):
 
 
 class BooksCount(BaseModelData):
+    user_id = IntegerField(primary_key=True)
     count = IntegerField()
 
     class Meta:
@@ -36,6 +38,7 @@ class BooksCount(BaseModelData):
 
 
 class BooksName(BaseModelData):
+    user_id = IntegerField(primary_key=True)
     name = CharField()
 
     class Meta:
@@ -43,6 +46,7 @@ class BooksName(BaseModelData):
 
 
 class UserNewData(BaseModelData):
+    user_id = IntegerField(primary_key=True)
     new_data = CharField()
 
     class Meta:
